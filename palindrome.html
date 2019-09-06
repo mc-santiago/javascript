@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+        <link rel="shortcut icon" href="https://i.postimg.cc/QtXQ5c08/Hi.png" />
+		<title>JS Exercises</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+                            <header id="header">
+                                <a href="index.html" class="logo"><strong>JS Exercises</strong> by mc-santiago</a>
+                                <ul class="icons">
+                                    <li><a href="https://twitter.com/maricstgo" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                                    <li><a href="https://github.com/mc-santiago" class="icon brands fa-github"><span class="label">Github</span></a></li>
+                                    <li><a href="https://www.linkedin.com/in/mc-santiago" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                                </ul>
+                            </header>
+
+							<!-- The Problem -->
+                                <section>
+									<header class="main">
+										<h1>Palindrome</h1>
+                                    </header>
+                                <h2>Problem: Explained</h2>
+                                <article>
+                                <p>As part of the Javascript Algorithms And Data Structures Certification you need to complete 5 javascript programs, palindrome being one of them. Up next I have quoted the explanation from freeCodeCamp's website.</p>
+                                <div class="box">
+                                    <p>A palindrome is a word or sentence that's spelled the same way both forward and backward, ignoring punctuation, case, and spacing.</p>
+                                    <p>Note:<br>
+                                    You'll need to remove all non-alphanumeric characters (punctuation, spaces and symbols) and turn everything into the same case (lower or upper case) in order to check for palindromes.</p>
+                                    <p>We'll pass strings with varying formats, such as "racecar", "RaceCar", and "race CAR"among others.</p>
+                                    <p>We'll also pass strings with special symbols, such as "2A3*3a2", "2A3 3a2", and "2_A3*3#A2".</p>
+                                </div>
+                                </article>
+                                </section>
+                                <!-- The Solution At Work -->
+                                <section>
+                                    <h2>Solution: At Work</h2>
+                                    <div class="solutionWrapper" >
+                                        <input id="palindromeInput" placeholder="insert phrase" type="text">
+                                        <button class="button primary" onclick="palindrome()">Try it</button>
+                                    </div>
+                                    <br>
+                                    <div class="box">
+                                        <p id="solutionPalindrome"></p>
+                                    </div>
+                                </section>
+                            <!-- The Solution -->
+                                <section>
+                                    <h2>Solution: The Code</h2>
+								    <pre>
+<code>function palindrome(str) {
+    let lowerCaseStr= str.toLowerCase().replace(/[^A-Za-z0-9]/g, '');
+    let reverseStr= lowerCaseStr.split('').reverse().join('');
+    return lowerCaseStr === reverseStr;
+}</code>
+</pre>
+                            </section>
+                        <!-- The Solution Step by Step -->
+                            <section>
+                                <h2>Solution: Step-by-Step</h2>
+                                <code>palindrome(_Race Car 5.)</code>
+                                <div class="box">
+                                    <p>In order to use this function you will need to call it by its name and insert inside of the parentheses the work you want to use it on. For this explanation I will be using the word "_Race Car.".</p>
+                                </div>
+                                <code>"_Race Car 5.".toLowerCase</code>
+                                <div class="box">
+                                    <p><code>.toLowerCase</code> will return the following: "_race car 5."</p>
+                                </div>
+                                <code>"_race car 5.".replace(/[^A-Za-z0-9]/g, '')</code>
+                                <div class="box">
+                                    <p><code>"_race car 5.".replace(/[^A-Za-z0-9]/g)</code> will return: "undefinedraceundefinedcarundefined5undefined"</p>
+                                    <p><code>"_race car 5.".replace(/[^A-Za-z0-9]/g, '')</code> will return: "racecar5"</p>
+                                    <p><code>/[^A-Za-z0-9]/</code> could have been replaced by the other regular expression <code>/[W_]/g</code>. As you may have figured out, this function replaces with nothing <code>''</code> everything that is not a letter or a number. If we had used <code>'+'</code> as the second argument instead of <code>''</code> the function would have returned "+race+car+5+".</p>
+                                </div>
+                                <code>"racecar5".split('')</code>
+                                <div class="box">
+                                    <p><code>"racecar5".split()</code> will return: ["racecar5"]</p>
+                                    <p><code>"racecar5".split('')</code> will return: ["r", "a", "c", "e", "c", "a", "r", "5"]</p>
+                                </div>
+                                <code>["r", "a", "c", "e", "c", "a", "r", "5"].reverse()</code>
+                                <div class="box">
+                                    <p><code>["r", "a", "c", "e", "c", "a", "r", "5"].reverse()</code> will return ["5", "r", "a", "c", "e", "c", "a", "r"]</p>
+                                </div>
+                                <code>["r", "a", "c", "e", "c", "a", "r", "5"].join('')</code>
+                                <div class="box">
+                                    <p><code>["r", "a", "c", "e", "c", "a", "r", "5"].join()</code> will return: "r,a,c,e,c,a,r,5"</p>
+                                    <p><code>["r", "a", "c", "e", "c", "a", "r", "5"].join('')</code> will return: "racecar5"</p>
+                                </div>
+                                <code>return lowerCaseStr === reverseStr;</code>
+                                <div class="box">
+                                    <p><code>===</code> means strict equality. In javascript, when we are using strict equality between two values it will compare these two. If both values are the same and of the same type, then the boolean <code>true</code> will be returned. Otherwise, <code>false</code> will be returned.</p>
+                            </section>
+                        </div>
+                    </div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+                                        <li><a href="index.html">Homepage</a></li>
+                                        <li><a href="palindrome.html">Palindrome</a></li>
+                                        <li><a href="roman-numeral.html">Roman Numeral Converter</a></li>
+                                        <li><a href="#">Name of JS Exercise</a></li>
+									</ul>
+								</nav>
+
+							<!-- Section Get in Touch -->
+								<section>
+									<header class="major">
+										<h2>Get in touch</h2>
+									</header>
+									<p>If you have any questions you may contact me by using the following email.</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope">mari.c.santiago@europe.com</a></li>
+										<li class="icon solid fa-home">Madrid, Spain 28012</li>
+									</ul>
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; mc-santiago. All rights reserved. Image Links: <a href="https://postimg.cc">Post Image</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+						</div>
+					</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+            <script src="assets/js/main.js"></script>
+            <script src="assets/js/js-exercises.js"></script>
+	</body>
+</html>
