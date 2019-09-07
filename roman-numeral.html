@@ -30,7 +30,7 @@
 							<!-- The Problem -->
                                 <section>
 									<header class="main">
-										<h1>Insert Name JS Exercise</h1>
+										<h1>Roman Numeral Converter</h1>
                                     </header>
 								<h2>Problem: Explained</h2>
 								<p>As part of the Javascript Algorithms And Data Structures Certification you need to complete 5 javascript programs, roman numeral converter being one of them. Up next I have quoted the explanation from freeCodeCamp's website.</p>
@@ -43,34 +43,89 @@
                                 <section>
                                     <h2>Solution: At Work</h2>
                                     <div class="solutionWrapper">
-                                        <input placeholder="insert phrase"/>
-                                        <button class="button primary">Test</button>
-                                    </div>
+                                        <input id="inputRomanNumeral" placeholder="insert number" type="number">
+                                        <button class="button primary" onclick="convertToRoman()">Convert</button>
+									</div>
+									<br>
+									<div class="box">
+										<p>Solution: <span id="solutionRomanNumeral"></span></p>
+									</div>
                                 </section>
                             <!-- The Solution -->
                                 <section>
                                 <h2>Solution: The Code</h2>
-								<pre><code>i = 0;
-while (!deck.isInOrder()) {
-    print 'Iteration ' + i;
-    deck.shuffle();
-    i++;
-}
+								<pre>
+<code>function convertToRoman(num) {
+	let roman='';
+	let romanNumeral = ["M", "CM", "D", “CD”, “C”, “XC”, “L”, “XL”, “X”, “IX”, “V”, “IV”, “I”];
+	let numbers = [1000,900,500,400,100,90,50,40,10,9,5,4,1]; 
 
-print 'It took ' + i + ' iterations to sort the deck.';
-</code></pre>
+	for (let i = 0; i < numbers.length; i++) {
+		while (num >= numbers[i]) {
+			roman += romanNumeral[i];
+			num -= numbers[i];
+		}
+	}
+		
+	return roman;
+}
+</code>							
+								</pre>
                             </section>
                         <!-- The Solution Step by Step -->
                             <section>
                                 <h2>The Solution: Step-by-Step</h2>
-                                <code>bla.filter</code>
+                                <code>let roman='';</code>
                                 <div class="box">
-                                    <p>Felis sagittis eget tempus primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Magna sed etiam ante ipsum primis in faucibus vestibulum.</p>
-                                </div>
-                                <code></code>
+                                    <p>Define a variable where the results of the loop will be stored.</p>
+								</div>
+								<code>let romanNumeral = ["M", "CM", "D", “CD”, “C”, “XC”, “L”, “XL”, “X”, “IX”, “V”, “IV”, “I”];
+let numbers = [1000,900,500,400,100,90,50,40,10,9,5,4,1]; </code>
+								<div class="box">
+									<p>Define two arrays. One with the roman numerals and anothere with the equivalent numbers. It is important that they are from highest to lowest and in the same order of equivalence.</p>
+								</div>
+                                <code>for (let i = 0; i < numbers.length; i++)</code>
                                 <div class="box">
-                                    
-                                </div>
+									<p>A <code>for-loop</code> will execute the code repeatedly with different values. All according to the statements following it.</p>
+									<p>Statement 1 <code>let i = 0</code> sets a variable used in the loop.</p>
+									<p>Statement 2 <code>i < numbers.length</code> is used to know for how long the code will run. As long as this statement is true, the code will run again.</p>
+									<p>Statement 3 <code>i++</code> means that everytime the code runs a loop it will add '1' to the initial variable 'i'. You can also use <code>i--</code> to subtract '1' from 'i'.</p>
+								</div>
+								<code>while (num >= numbers[i])</code>
+								<div class="box">
+									<p>As it reads. While the <code>num</code> is greater than or equal than <code>numbers[i]</code>, run the code inside the {squiggly brackets}.</p>
+									<p>At the beginning of the loop <code>i = 0</code>. This means <code>numbers[i]</code> equals <code>numbers[0]</code>. The number inside the [brackets] equal the position in the array. Position <code>0</code> in the array <code>numbers</code> is <code>1000</code>.</p>
+								</div>
+								<code>roman += romanNumeral[i];</code>
+								<div class="box">
+									<p>This code is an abbreviation of <code>roman = roman + romanNumeral[i]</code>.</p>
+								</div>
+								<code>num -= numbers[i];</code>
+								<div class="box">
+									<p>This code is an abbreviation of <code>num = num - numbers[i]</code>.</p>
+								</div>
+								<code>The workings behind convertToRoman(2019)</code>
+								<div class="box">
+									<p>1<sup>st</sup> for-loop: <code>i = 0</code> // <code>i < numbers.length</code> // 0 is < 13 // while (2019 >= 1000) { roman = '' + M; 1019 = 2019 - 1000; }</p>
+									<p>inside while-loop: <code>i = 0</code> while (1019 >= 1000) { MM = M + M; 19 = 1019 - 1000; }</p>
+									<p>inside while-loop: <code>i = 0</code> while (19 >= 1000) // 19 is not >= 1000 // break while-loop.</p>
+									<p>2<sup>nd</sup> for-loop: <code>i = 1</code> // <code>i < numbers.length</code> // 1 is < 13 // while (19 >= 900) // 19 is not >= 900 // break while-loop.</p>
+									<p>3<sup>rd</sup> for-loop: <code>i = 2</code> // <code>i < numbers.length</code> // 2 is < 13 // while (19 >= 500) // 19 is not >= 500 // break while-loop.</p>
+									<p>4<sup>th</sup> for-loop: <code>i = 3</code> // <code>i < numbers.length</code> // 3 is < 13 //while (19 >= 400) // 19 is not >= 400 // break while-loop.</p>
+									<p>5<sup>th</sup> for-loop: <code>i = 4</code> // <code>i < numbers.length</code> // 4 is < 13 // while (19 >= 100) // 19 is not >= 100 // break while-loop.</p>
+									<p>6<sup>th</sup> for-loop: <code>i = 5</code> // <code>i < numbers.length</code> // 5 is < 13 // while (19 >= 90) // 19 is not >= 90 // break while-loop.</p>
+									<p>7<sup>th</sup> for-loop: <code>i = 6</code> // <code>i < numbers.length</code> // 6 is < 13 // while (19 >= 50) // 19 is not >= 50 // break while-loop.</p>
+									<p>8<sup>th</sup> for-loop: <code>i = 7</code> // <code>i < numbers.length</code> // 7 is < 13 // while (19 >= 40) // 19 is not >= 40 // break while-loop.</p>
+									<p>9<sup>th</sup> for-loop: <code>i = 8</code> // <code>i < numbers.length</code> // 8 is < 13 // while (19 >= 10) { MMX = MM + X; 9 = 19 - 10; }</p>
+									<p>inside while-loop: <code>i = 8</code> while (9 >= 10) // 9 is not >= 10 // break while-loop.</p>
+									<p>10<sup>th</sup> for-loop: <code>i = 9</code> // <code>i < numbers.length</code> // 9 is < 13 // while (9 >= 9) { MMXIX = MMX + IX; 0 = 9 - 9; }</p>
+									<p>inside while-loop: <code>i = 9</code> while (0 >= 9) // 0 is not >= 10 // break while-loop.</p>
+									<p>11<sup>th</sup> for-loop: <code>i = 10</code> // <code>i < numbers.length</code> // 10 is < 13 // while (0 >= 5) // 0 is not >= 5 // no while-loop.</p>
+									<p>12<sup>th</sup> for-loop: <code>i = 11</code> // <code>i < numbers.length</code> // 11 is < 13 // while (0 >= 4) // 0 is not >= 4 // no while-loop.</p>
+									<p>13<sup>th</sup> for-loop: <code>i = 12</code> // <code>i < numbers.length</code> // 12 is < 13 // while (0 >= 1) // 0 is not >= 1 // no while-loop.</p>
+									<p>14<sup>th</sup> for-loop: <code>i = 13</code> // <code>i < numbers.length</code> // 13 is not < 13 // no for-loop.</p>
+									<p><code>return roman;</code> The answer was ultimately calulated in the 10<sup>th</sup> for loop: MMXIX</p>
+								</div>
                             </section>
                         </div>
                     </div>
