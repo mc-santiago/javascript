@@ -17,45 +17,47 @@
 					<div id="main">
 						<div class="inner">
 
-							<!-- Header -->
-                            <header id="header">
-                                <a href="index.html" class="logo"><strong>JS Exercises</strong> by mc-santiago</a>
-                                <ul class="icons">
-                                    <li><a href="https://twitter.com/maricstgo" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-                                    <li><a href="https://github.com/mc-santiago" class="icon brands fa-github"><span class="label">Github</span></a></li>
-                                    <li><a href="https://www.linkedin.com/in/mc-santiago" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-                                </ul>
-                            </header>
+                            <!-- Header -->
+                                <header id="header">
+                                    <a href="index.html" class="logo"><strong>JS Exercises</strong> by mc-santiago</a>
+                                    <ul class="icons">
+                                        <li><a href="https://twitter.com/maricstgo" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                                        <li><a href="https://github.com/mc-santiago" target="_blank" class="icon brands fa-github"><span class="label">Github</span></a></li>
+                                        <li><a href="https://www.linkedin.com/in/mc-santiago" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                                    </ul>
+                                </header>
 
 							<!-- The Problem -->
                                 <section>
 									<header class="main">
 										<h1>Palindrome</h1>
                                     </header>
-                                <h2>Problem: Explained</h2>
-                                <article>
-                                <p>As part of the Javascript Algorithms And Data Structures Certification you need to complete 5 javascript programs, palindrome being one of them. Up next I have quoted the explanation from freeCodeCamp's website.</p>
-                                <div class="box">
-                                    <p>A palindrome is a word or sentence that's spelled the same way both forward and backward, ignoring punctuation, case, and spacing.</p>
-                                    <p>Note:<br>
-                                    You'll need to remove all non-alphanumeric characters (punctuation, spaces and symbols) and turn everything into the same case (lower or upper case) in order to check for palindromes.</p>
-                                    <p>We'll pass strings with varying formats, such as "racecar", "RaceCar", and "race CAR"among others.</p>
-                                    <p>We'll also pass strings with special symbols, such as "2A3*3a2", "2A3 3a2", and "2_A3*3#A2".</p>
-                                </div>
-                                </article>
+                                    <h2>Problem: Explained</h2>
+                                    <article>
+                                        <p>As part of the Javascript Algorithms And Data Structures Certification you need to complete 5 javascript programs, palindrome being one of them. Up next I have quoted the explanation from freeCodeCamp's website.</p>
+                                        <div class="box">
+                                            <p>A palindrome is a word or sentence that's spelled the same way both forward and backward, ignoring punctuation, case, and spacing.</p>
+                                            <p>Note:<br>
+                                            You'll need to remove all non-alphanumeric characters (punctuation, spaces and symbols) and turn everything into the same case (lower or upper case) in order to check for palindromes.</p>
+                                            <p>We'll pass strings with varying formats, such as "racecar", "RaceCar", and "race CAR"among others.</p>
+                                            <p>We'll also pass strings with special symbols, such as "2A3*3a2", "2A3 3a2", and "2_A3*3#A2".</p>
+                                        </div>
+                                    </article>
                                 </section>
-                                <!-- The Solution At Work -->
+
+                            <!-- The Solution At Work -->
                                 <section>
                                     <h2>Solution: At Work</h2>
                                     <div class="solutionWrapper" >
-                                        <input id="inputPalindrome" placeholder="insert phrase" type="text">
-                                        <button class="button primary" onclick="palindrome()">Try it</button>
+                                        <input id="inputPalindrome" placeholder="insert phrase" type="text"/>
+                                        <button class="button primary" onclick="palindrome()" type="button">Try it</button>
                                     </div>
                                     <br>
                                     <div class="box">
-                                        <p id="solutionPalindrome"></p>
+                                        <p>Solution: <span id="solutionPalindrome"></span></p>
                                     </div>
                                 </section>
+
                             <!-- The Solution -->
                                 <section>
                                     <h2>Solution: The Code</h2>
@@ -65,8 +67,9 @@
     let reverseStr= lowerCaseStr.split('').reverse().join('');
     return lowerCaseStr === reverseStr;
 }</code>
-</pre>
+                                    </pre>
                             </section>
+
                         <!-- The Solution Step by Step -->
                             <section>
                                 <h2>Solution: Step-by-Step</h2>
@@ -118,7 +121,7 @@
                                         <li><a href="index.html">Homepage</a></li>
                                         <li><a href="palindrome.html">Palindrome</a></li>
                                         <li><a href="roman-numeral.html">Roman Numeral Converter</a></li>
-                                        <li><a href="#">Name of JS Exercise</a></li>
+                                        <li><a href="caesars-cipher.html">Caesars Cipher</a></li>
 									</ul>
 								</nav>
 
@@ -137,7 +140,8 @@
 							<!-- Footer -->
 								<footer id="footer">
 									<p class="copyright">&copy; mc-santiago. All rights reserved. Image Links: <a href="https://postimg.cc">Post Image</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-								</footer>
+                                </footer>
+                                
 						</div>
 					</div>
 			</div>

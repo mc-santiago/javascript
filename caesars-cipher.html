@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<link rel="shortcut icon" href="https://i.postimg.cc/QtXQ5c08/Hi.png" />
+		<title>JS Exercises</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+                                <header id="header">
+                                    <a href="index.html" class="logo"><strong>JS Exercises</strong> by mc-santiago</a>
+                                    <ul class="icons">
+                                        <li><a href="https://twitter.com/maricstgo" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                                        <li><a href="https://github.com/mc-santiago" target="_blank" class="icon brands fa-github"><span class="label">Github</span></a></li>
+                                        <li><a href="https://www.linkedin.com/in/mc-santiago" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                                    </ul>
+                                </header>
+
+							<!-- The Problem -->
+                                <section>
+									<header class="main">
+										<h1>Caesars Cipher</h1>
+                                    </header>
+                                    <h2>Problem: Explained</h2>
+                                    <article>
+                                        <p>As part of the Javascript Algorithms And Data Structures Certification you need to complete 5 javascript programs, Caesars Cipher being one of them. Up next I have quoted from freeCodeCamp's website the explanation for the <code>DECODE</code> button. The <code>CODE</code> button I have added, but it was not part of the exercise.</p>
+                                        <div class="box">
+                                            <p>One of the simplest and most widely known ciphers is a Caesar cipher, also known as a shift cipher. In a shift cipherthe meanings of the letters are shifted by some set amount.</p>
+                                            <p>A common modern use is the ROT13 cipher, where the values of the letters are shifted by 13 places. Thus 'A' ↔ 'N', 'B' ↔ 'O' and so on.</p>
+                                            <p>Write a function which takes a ROT13 encoded string as input and returns a decoded string.</p>
+                                            <p>All letters will be uppercase. Do not transform any non-alphabetic character (i.e. spaces, punctuation), but do pass them on.</p>
+                                        </div>
+                                    </article>
+                                </section>
+
+                            <!-- The Solution At Work -->
+                                <section>
+                                    <h2>Solution: At Work</h2>
+                                    <div class="solutionWrapper">
+                                        <input id='inputCaesarsCipher' placeholder="WILL CODE/DECODE ONLY CAPITAL LETTERS" type="text"/>
+                                        <button class="button primary" onclick="caesarsCipherCode()">Code</button>
+                                        <button class="button primary" onclick="caesarsCipherDecode()">Decode</button>
+                                    </div>
+                                    <br>
+                                    <div class="box">
+                                        <p>Solution: <span id="solutionCaesarsCipher"></span></p>
+                                    </div>
+                                </section>
+
+                            <!-- The Solution -->
+                                <section>
+                                <h2>Solution: The Code</h2>
+								<pre>
+<code>function caesarsCipher(str) {
+    let encoded = '';
+
+    for (let i=0; i < str.length; i++) {
+    let asciiNumber = str[i].charCodeAt();
+        if (asciiNumber >= 65 && asciiNumber <= 77) {
+            encoded += String.fromCharCode(asciiNumber + 13);
+        } else if (asciiNumber >= 78 && asciiNumber <= 90) {
+            encoded += String.fromCharCode(asciiNumber - 13); 
+        } else {
+            encoded += str[i];
+        }
+    }
+
+    return encoded;
+}
+</code>
+                                </pre>
+                            </section>
+
+                        <!-- The Solution Step by Step -->
+                            <section>
+                                <h2>The Solution: Step-by-Step</h2>
+                                <code>for (let i=0; i < str.length; i++)</code>
+                                <div class="box">
+                                    <p>This is a for loop that will run along, starting at 0, for as long as the variable <code>i</code> is less than the string's length (number of letter in this case).</p>
+                                </div>
+                                <code>let asciiNumber</code>
+                                <div class="box">
+                                    <p>You can have an array with all the letters of the alphabet, or you can use the <code>ascii table</code>. Ascii stands for American Standard Code for Information Interchange.</p>
+                                    <img src="https://i.postimg.cc/90TT3GL4/python-basic-image-exercise-86.png" width=400px >
+                                </div>
+                                <code>str[i].charCodeAt();</code>
+                                <div class="box">
+                                    <p>This piece of code will use the ascii table to convert the letter in the position <code>i</code> to its numerical equivalent.</p>
+                                    <p>Example: If the word is "GO" then <code>str[0]</code> is "G", with a <code>charCodeAt()</code> of "71". On the next loop, <code>str[1]</code> is "O", with a <code>charCodeAt()</code> of "79".</p>
+                                </div>
+                                <code>if (asciiNumber >= 65 && asciiNumber <= 77) {encoded += String.fromCharCode(asciiNumber + 13);}</code>
+                                <div class="box">
+                                    <p>The alphabet in the ascii table runs from 65 to 90. Per this exercise, in order to decode the message, each letter is shifted forward 13 positions.</p>
+                                    <p>Example: Using our previous example, the letter 'G' has a charcode of "71". If we add 71 + 13 we get 84. Using <code>fromCharCode(84)</code> we get the letter "T"</p>
+                                    <p>If we do the same with the letter "O" we get that 79 + 13 = 92. Using <code>fromCharCode(92)</code> we do not get a letter, but a '\'. this is the reason I have added the next part of the code.</p>
+                                </div>
+                                <code>else if (asciiNumber >= 78 && asciiNumber <= 90) {encoded += String.fromCharCode(asciiNumber - 13); }</code>
+                                <div class="box">
+                                    <p>With the numerical equivalent of the alpphabet running from 65 to 90, if we want to shift 13 positions forward from 90 we need to adjust the formula. Luckily this case is easy enoght, instead of adding we subtract.</p>
+                                    <p>Solving the problem we had with the letter "O", if instead of adding we do 79 - 13 = 66. Using <code>fromCharCode(66)</code> we get the letter "B"</p>
+                                </div>
+                                <code>else {encoded += str[i];}</code>
+                                <div class="box">
+                                    <p>What happens in the cases where we have spaces, numbers, lowercase or others? We just add them to the solution as they are. No changes.</p>
+                                </div>
+                                <code>return encoded;</code>
+                                <div>
+                                    <p>The solution returned for the example used will be "TB".</p>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section>
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+                                        <li><a href="index.html">Homepage</a></li>
+                                        <li><a href="palindrome.html">Palindrome</a></li>
+                                        <li><a href="roman-numeral.html">Roman Numeral Converter</a></li>
+                                        <li><a href="caesars-cipher.html">Caesars Cipher</a></li>
+									</ul>
+								</nav>
+
+							<!-- Section Get in Touch -->
+								<section>
+									<header class="major">
+										<h2>Get in touch</h2>
+									</header>
+									<p>If you have any questions you may contact me by using the following email.</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope">mari.c.santiago@europe.com</a></li>
+										<li class="icon solid fa-home">Madrid, Spain 28012</li>
+									</ul>
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; mc-santiago. All rights reserved. Image Links: <a href="https://postimg.cc">Post Image</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+                                </footer>
+                                
+						</div>
+					</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+            <script src="assets/js/main.js"></script>
+            <script src="assets/js/js-exercises.js"></script>
+
+	</body>
+</html>

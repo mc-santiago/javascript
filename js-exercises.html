@@ -18,14 +18,14 @@
 						<div class="inner">
 
 							<!-- Header -->
-                            <header id="header">
-                                <a href="index.html" class="logo"><strong>JS Exercises</strong> by mc-santiago</a>
-                                <ul class="icons">
-                                    <li><a href="https://twitter.com/maricstgo" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-                                    <li><a href="https://github.com/mc-santiago" class="icon brands fa-github"><span class="label">Github</span></a></li>
-                                    <li><a href="https://www.linkedin.com/in/mc-santiago" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-                                </ul>
-                            </header>
+								<header id="header">
+									<a href="index.html" class="logo"><strong>JS Exercises</strong> by mc-santiago</a>
+									<ul class="icons">
+										<li><a href="https://twitter.com/maricstgo" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="https://github.com/mc-santiago" target="_blank" class="icon brands fa-github"><span class="label">Github</span></a></li>
+										<li><a href="https://www.linkedin.com/in/mc-santiago" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+									</ul>
+								</header>
 
 							<!-- The Problem -->
                                 <section>
@@ -33,19 +33,26 @@
 										<h1>Insert Name JS Exercise</h1>
                                     </header>
                                 <h2>Problem: Explained</h2>
-                                </section>
+								</section>
+								
                             <!-- The Solution At Work -->
                                 <section>
                                     <h2>Solution: At Work</h2>
-                                    <div class="solutionWrapper">
+                                    <div id="inputName" class="solutionWrapper" type="text">
                                         <input placeholder="insert phrase"/>
-                                        <button class="button primary">Test</button>
-                                    </div>
-                                </section>
+                                        <button class="button primary" onclick="functionName()">Test</button>
+									</div>
+									<br>
+									<div class="box">
+									<p>Solution: <span id="solutionName"></span></p>
+									</div>
+								</section>
+								
                             <!-- The Solution -->
                                 <section>
                                 <h2>Solution: The Code</h2>
-								<pre><code>i = 0;
+								<pre>
+<code>i = 0;
 while (!deck.isInOrder()) {
     print 'Iteration ' + i;
     deck.shuffle();
@@ -53,8 +60,10 @@ while (!deck.isInOrder()) {
 }
 
 print 'It took ' + i + ' iterations to sort the deck.';
-</code></pre>
-                            </section>
+</code>
+								</pre>
+							</section>
+							
                         <!-- The Solution Step by Step -->
                             <section>
                                 <h2>The Solution: Step-by-Step</h2>
@@ -64,7 +73,7 @@ print 'It took ' + i + ' iterations to sort the deck.';
                                 </div>
                                 <code></code>
                                 <div class="box">
-                                    
+									<p></p>
                                 </div>
                             </section>
                         </div>
@@ -90,8 +99,7 @@ print 'It took ' + i + ' iterations to sort the deck.';
                                         <li><a href="index.html">Homepage</a></li>
 										<li><a href="palindrome.html">Palindrome</a></li>
 										<li><a href="roman-numeral.html">Roman Numeral Converter</a></li>
-										<li><a href="generic.html">Generic</a></li>
-                                        <li><a href="elements.html">Elements</a></li>
+										<li><a href="caesars-cipher.html">Caesars Cipher</a></li>
                                         <li><a href="#">Name</a></li>
 									</ul>
 								</nav>

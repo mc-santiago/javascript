@@ -3617,5 +3617,8 @@ input, select, textarea {
 	border-radius: 0.375em;
 	border: 0;
 	box-shadow: 0 1px 2px 1px darkslategrey;
-	margin-right: 5px;
+}
+
+.solutionWrapper button {
+	margin-left: 5px;
 }
