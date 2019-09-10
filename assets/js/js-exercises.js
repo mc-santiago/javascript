@@ -54,7 +54,7 @@ function caesarsCipherDecode() {
         }
     }
 
-    document.getElementById("solutionCaesarsCipher").innerHTML= `${encoded} is the decoded message of ${coded}. Try another.`;
+    document.getElementById("solutionCaesarsCipher").innerHTML= `"${encoded}" is the decoded message of for "${coded}".`;
 }
 
 function caesarsCipherCode() {
@@ -73,5 +73,23 @@ function caesarsCipherCode() {
     }
 
     document.getElementById("inputCaesarsCipher").value = '';
-    document.getElementById("solutionCaesarsCipher").innerHTML= `${code} is the coded message `${encode}`. Try another.`;
+    document.getElementById("solutionCaesarsCipher").innerHTML= `"${code}" is the coded message for "${encode}". Try another.`;
 }
+
+// Telephone Number Validator
+
+function telephoneNumberValidator() {
+    let strTNV = document.getElementById("inputTNV").value;
+    let textTNV ="";
+    let regex = /^(1\s)?(\(\d{3}\)|\d{3})[\s\-]?\d{3}[\s\-]?\d{4}$/;
+   
+   if (regex.test(strTNV) === true) {
+    textTNV= `Yes, ${strTNV} is a valid US telephone number.`;
+    document.getElementById("inputTNV").value='';
+    } else {
+    textTNV= `No, ${strTNV} is not a valid US number. Check for errors and try again.`;
+    document.getElementById("inputTNV").value='';
+    }
+
+    document.getElementById("solutionTVN").innerHTML= textTNV;
+ };

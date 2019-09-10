@@ -1,0 +1,189 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<link rel="shortcut icon" href="https://i.postimg.cc/QtXQ5c08/Hi.png" />
+		<title>JS Exercises</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="index.html" class="logo"><strong>JavaScript Exercises</strong> by mc-santiago</a>
+									<ul class="icons">
+										<li><a href="https://twitter.com/maricstgo" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="https://github.com/mc-santiago" target="_blank" class="icon brands fa-github"><span class="label">Github</span></a></li>
+										<li><a href="https://www.linkedin.com/in/mc-santiago" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+									</ul>
+								</header>
+
+							<!-- The Problem -->
+                                <section>
+									<header class="main">
+										<h1>Telephone Number Validator</h1>
+                                    </header>
+                                <h2>Problem: Explained</h2>
+                                <article>
+                                    <p>As part of the Javascript Algorithms And Data Structures Certification you need to complete 5 javascript programs, telephone number validator being one of them. Up next I have quoted the explanation from freeCodeCamp's website.</p>
+                                    <div class="box">
+                                        <p>Return trueif the passed string looks like a valid US phone number.</p>
+                                        <p>The user may fill out the form field any way they choose as long as it has the format of a valid US number. The following are examples of valid formats for US numbers (refer to the tests below for other variants):</p>
+<pre><code>555-555-5555
+(555)555-5555
+(555) 555-5555
+555 555 5555
+5555555555
+1 555 555 5555</code></pre>
+                                        <p>For this challenge you will be presented with a string such as 800-692-7753or 8oo-six427676;laskdjf. Your job is to validate or reject the US phone number based on any combination of the formats provided above. The area code is required. If the country code is provided, you must confirm that the country code is 1. Return trueif the string is a valid US phone number; otherwise return false.</p>
+                                    </div>
+                                </article>
+								
+                            <!-- The Solution At Work -->
+                                <section>
+                                    <h2>Solution: At Work</h2>
+                                    <div class="solutionWrapper" type="text">
+                                        <input id="inputTNV" placeholder="insert telephone number"/>
+                                        <button class="button primary" onclick="telephoneNumberValidator()">Validate </button>
+									</div>
+									<br>
+									<div class="box">
+									<p>Solution: <span id="solutionTVN"></span></p>
+									</div>
+								</section>
+								
+                            <!-- The Solution The Code-->
+                                <section>
+                                <h2>Solution: The Code</h2>
+								<pre>
+<code>function telephoneNumValidator(str) {
+    let regex = /^(1\s?)?(\(\d{3}\)|\d{3})[\s\-]?\d{3}[\s\-]?\d{4}$/;
+    return regex.test(str);
+ }
+</code>
+								</pre>
+							</section>
+							
+                        <!-- The Solution Step by Step -->
+                            <section>
+                                <h2>Solution: Step-by-Step</h2>
+                                <code>var regex</code>
+                                <div class="box">
+                                    <p>The only way to solve this problem is by using <code>regex</code>. Regex, short for <strong>reg</strong>ular <strong>ex</strong>pression, is a specially encoded string of text that allows you to create patterns that help match, locate, and manage text.</p>
+                                    <p>For this exercise, I used <a href="https://www.regexpal.com/" target="_blank">regexpal.com</a>. On this site you can enter different regular expressions and it will tell you what each piece of text does when you hover over them.</p>
+                                    <p>To learn more about regex you can also take a look at <a href="https://regexr.com" target="_blank">regexr.com</a> or, even better, at the cheat sheet from <a href="https://www.rexegg.com/regex-quickstart.html" target="_blank">rexegg.com</a></p>
+                                </div>
+                                <code>/ ... /;</code>
+                                <div class="box">
+									<p>the <code>/</code> indicate the start and the beginning of a regular expression.</p>
+                                </div>
+                                <code>^ ... $</code>
+                                <div class="box">
+									<p><code>^</code> matches the beginning of the string and <code>$</code> matches the end of it. Adding this ensures that the number being validated will have a maximum number of characters.</p>
+                                </div>
+                                <code>(1\s?)</code>
+                                <div class="box">
+                                    <p>First, we want to validate the <code>1</code> country code. For this, we will enclose the expression validating this section on a (parentheses).</p>
+                                    <p>Second, the contry code is <code>1</code> so we add that. <code>\s</code> means whitespace character and the following <code>?</code> means for there to be one or none of the preceding expression, which in this case means there can be one whitespace character or none at all.</p>
+                                </div>
+                                <code>?</code>
+                                <div class="box">
+									<p>Maybe the number entered has the country code, but maybe it doesn't. That is why we include an extra <code>?</code> outside of the first (parentheses). There can be one of the expression inside the parentheses or nothing.</p>
+                                </div>
+                                <code>(\(\d{3}\)|\d{3})</code>
+                                <div class="box">
+                                    <p>Next, we will need to validate the following three digits located after the country code. These numbers can be inside a (parentheses) or not.</p>
+                                    <p><code>\(</code> means that it matches the character <code>(</code>. <code>\d</code> is for matching one digit from 0 to 9, while <code>{3}</code> changes that from being one digit to three digits. The parentheses needs to be closed so you need to add a <code>\)</code> to match the encosing parentheses surrounding those three digits.</p>
+                                    <p>Since this first set of three digits may or may not be enclosed inside parentheses we need to add <code>\d{3}</code> which matches three digits alone. In between these two we have to add a <code>|</code> character, which means "or". In other words, match 3 digits inside the parentheses or 3 digits without parentheses.</p>
+                                </div>
+                                <code>[\s\-]?</code>
+                                <div class="box">
+									<p>Next, we need to check for possible single spaces or dashes.</p>
+                                    <p>The brackets are used to match any characters inside the set. <code>\s</code> matches a whitespace character, <code>\-</code> matches a dash, and the <code>?</code> outside of the brackets means that only one or none of the conditions inside the brackets is allowed.</p>
+                                </div>
+                                <code>\d{3}</code>
+                                <div class="box">
+									<p>Include one digit between 0 and 9 three times. In other words, it validates only when a three digit number is entered.</p>
+								</div>
+								<code>[\s\-]?</code>
+                                <div class="box">
+									<p>Next, we need to check for possible single spaces or dashes.</p>
+                                    <p>The brackets are used to match any characters inside the set. <code>\s</code> matches a whitespace character, <code>\-</code> matches a dash, and the <code>?</code> outside of the brackets means that only one or none of the conditions inside the brackets is allowed.</p>
+                                </div>
+                                <code>\d{4}</code>
+                                <div class="box">
+									<p>Same as above, only this validates only if it is a four digit number.</p>
+                                </div>
+                                <code>return regex.test(str)</code>
+                                <div class="box">
+                                    <p>This part of the code is used to test the <code>str</code> entered. If the number is validated it will return the boolean <code>true</code>.</p>
+                                    <p>Maybe you want to return something else? You can replace this line with an if/else statement, or a ternary operator like the following <code>return regex.test(str) ? "text" : "text2";</code> which will return the string "text" if <code>regex.test(str)</code> is true and "text2" if it is false.</p>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section>
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+                                        <li><a href="index.html">Homepage</a></li>
+										<li><a href="palindrome.html">Palindrome</a></li>
+										<li><a href="roman-numeral.html">Roman Numeral Converter</a></li>
+										<li><a href="caesars-cipher.html">Caesars Cipher</a></li>
+										<li><a href="telephone-num-validator.html">Telephone Number Validator</a></li>
+									</ul>
+								</nav>
+
+							<!-- Section Get in Touch -->
+								<section>
+									<header class="major">
+										<h2>Get in touch</h2>
+									</header>
+									<p>If you have any questions you may contact me by using the following email.</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope">mari.c.santiago@europe.com</a></li>
+										<li class="icon solid fa-home">Madrid, Spain 28012</li>
+									</ul>
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; mc-santiago. All rights reserved. Image Links: <a href="https://postimg.cc">Post Image</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+						</div>
+					</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+            <script src="assets/js/main.js"></script>
+            <script src="assets/js/js-exercises.js"></script>
+
+	</body>
+</html>
